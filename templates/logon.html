@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block externalCSS %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
+{% endblock %}
+
+{% block container %}
+    <div class="container bgwhite p-t-35 p-b-80">
+		<div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100 p-t-50 p-b-90">
+                    <form class="login100-form validate-form flex-sb flex-w" method="post" action="logon.html" id="signupForm">
+                        {% csrf_token %}
+                        <span class="login100-form-title p-b-51">
+                            Kayıt ol
+                        </span>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "İsim gerekli">
+                            <input class="input100" type="text" name="name" id="name" placeholder="İsim">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Soyisim gerekli">
+                            <input class="input100" type="text" name="surname" id="surname" placeholder="Soyisim">
+                            <span class="focus-input100"></span>
+                        </div>
+
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "E-mail gerekli">
+                            <input class="input100" type="text" name="email" placeholder="e-mail">
+                            <span class="focus-input100"></span>
+                        </div>
+
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Parola gerekli">
+                            <input class="input100" type="password" name="pass" placeholder="parola">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Parola gerekli">
+                            <input class="input100" type="password" name="repass" placeholder="Parolanızı doğrulayın">
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Telefon numarası gerekli">
+                            <input class="input100" type="text" name="phone" placeholder="telefon numarası">
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Adres gerekli">
+                            <input class="input100" type="text" name="address" placeholder="Adres">
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="container-login100-form-btn m-t-17">
+                            <button class="login100-form-btn" id="submit">
+                                Kayıt ol
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+	    </div>
+    </div>
+{% endblock %}
+
+{% block externalJS %}
+    <script src="{% static 'login/js/main.js' %}"></script>
+    <script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+    <script type="text/javascript">
+        var form = document.getElementById("signupForm");
+        document.getElementById("submit").addEventListener("click", function () {
+            form.submit();
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+    <section class="slide1">
+		<div class="wrap-slick1">
+			<div class="slick1">
+                {% for slide in sliders %}
+				<div class="item-slick1 item1-slick1" style="background-image: url({{ slide.image.url }});">
+					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+							{{ slide.baslik }}
+						</span>
+
+						<h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+							{{ slide.aciklama }}
+						</h2>
+
+						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
+							<!-- Button -->
+							<a href="{% url 'product' slide.category %}" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+								Siparis ver
+							</a>
+						</div>
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<!-- Banner -->
+	<section class="banner bgwhite p-t-40 p-b-40">
+		<div class="container">
+
+                <div class="row">
+                    <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
+                        <!-- block1 -->
+                        <div class="block1 hov-img-zoom pos-relative m-b-30">
+                            <img src="{{ products11.image.url }}" alt="IMG-BENNER">
+
+                            <div class="block1-wrapbtn w-size2">
+                                <!-- Button -->
+                                <a href="{% url 'product' products11.menuItem %}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                    {{ products11.menuExp }}
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- block1 -->
+                        <div class="block1 hov-img-zoom pos-relative m-b-30">
+                            <img src="{{ products21.image.url }}" alt="IMG-BENNER">
+
+                            <div class="block1-wrapbtn w-size2">
+                                <!-- Button -->
+                                <a href="{% url 'product' products21.menuItem %}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                    {{ products21.menuExp }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
+                        <!-- block1 -->
+                        <div class="block1 hov-img-zoom pos-relative m-b-30">
+                            <img src="{{ products22.image.url }}" alt="IMG-BENNER">
+
+                            <div class="block1-wrapbtn w-size2">
+                                <!-- Button -->
+                                <a href="{% url 'product' products22.menuItem %}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                    {{ products22.menuExp }}
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- block1 -->
+                        <div class="block1 hov-img-zoom pos-relative m-b-30">
+                            <img src="{{ products12.image.url }}" alt="IMG-BENNER">
+
+                            <div class="block1-wrapbtn w-size2">
+                                <!-- Button -->
+                                <a href="{% url 'product' products12.menuItem %}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                    {{ products12.menuExp }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
+                        <!-- block1 -->
+                        <div class="block1 hov-img-zoom pos-relative m-b-30">
+                            <img src="{{ products13.image.url }}" alt="IMG-BENNER">
+
+                            <div class="block1-wrapbtn w-size2">
+                                <!-- Button -->
+                                <a href="{% url 'product' products13.menuItem %}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                    {{ products13.menuExp }}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="block2 wrap-pic-w pos-relative m-b-30">
+                            <img src="{% static '720x660.png' %}" alt="IMG">
+                            <div class="block2-content sizefull ab-t-l flex-col-c-m">
+                                <h4 class="m-text4 t-center w-size3 p-b-8">
+                                    Buraya herhangi bir reklam ya da bilgilendirme
+                                </h4>
+
+                                <p class="t-center w-size4">
+                                    Toplu siparişlerde indirim ! {% if user.is_authenticated  %} Sipariş verin {% else %} Giriş yapın ve sipariş verin ! {% endif %}
+                                </p>
+
+                                <div class="w-size2 p-t-25">
+                                    <!-- Button -->
+                                    <a href="{% if user.is_authenticated  %}#{% else %} {% url 'login' %} {% endif %}" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+                                    {% if user.is_authenticated  %} Sipariş verin {% else %} Giriş yapın {% url 'login' %} {% endif %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+		</div>
+	</section>
+
+	<!-- #####################################################################  BLOG #################################################-->
+	<section class="newproduct bgwhite p-t-45 p-b-105">
+		<div class="container">
+			<div class="sec-title p-b-60">
+				<h3 class="m-text5 t-center">
+                    Blog
+				</h3>
+			</div>
+
+			<div class="wrap-slick2">
+			    <div class="slick2">
+                    {% for doc in blog %}
+                        <div class="item-slick2 p-l-15 p-r-15">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                    <img src="{{ doc.image.url }}" alt="IMG-PRODUCT">
+
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="{% url 'blog' doc.blog_id %}" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='{% url 'blog' doc.blog_id %}';">
+                                                Devamını oku
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt p-t-20">
+                                    <a href="{% url 'blog' doc.blog_id %}" class="block2-name dis-block s-text3 p-b-5">
+                                        {{ doc.caption}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+	</section>
+
+	<!-- Banner2 -->
+	<section class="banner2 bg5 p-t-55 p-b-55">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
+					<div class="hov-img-zoom pos-relative">
+						<iframe width="100%" height="400px"  src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                        </iframe>
+
+
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
+					<div class="bgwhite hov-img-zoom pos-relative p-b-20per-ssm">
+						<iframe width="100%" height="400px"  src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                        </iframe>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+{% endblock %}
+
+
+{% block container %}
+    	<div class="container">
+			<div class="sec-title p-b-52">
+				<h3 class="m-text5 t-center">
+					Our Blog
+				</h3>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/blog-01.jpg" alt="IMG-BLOG">
+						</a>
+
+						<div class="block3-txt p-t-14">
+							<h4 class="p-b-7">
+								<a href="blog-detail.html" class="m-text11">
+									Black Friday Guide: Best Sales & Discount Codes
+								</a>
+							</h4>
+
+							<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
+							<span class="s-text6">on</span> <span class="s-text7">July 22, 2017</span>
+
+							<p class="s-text8 p-t-16">
+								Duis ut velit gravida nibh bibendum commodo. Sus-pendisse pellentesque mattis augue id euismod. Inter-dum et malesuada fames
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/blog-02.jpg" alt="IMG-BLOG">
+						</a>
+
+						<div class="block3-txt p-t-14">
+							<h4 class="p-b-7">
+								<a href="blog-detail.html" class="m-text11">
+									The White Sneakers Nearly Every Fashion Girls Own
+								</a>
+							</h4>
+
+							<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
+							<span class="s-text6">on</span> <span class="s-text7">July 18, 2017</span>
+
+							<p class="s-text8 p-t-16">
+								Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit ame
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/blog-03.jpg" alt="IMG-BLOG">
+						</a>
+
+						<div class="block3-txt p-t-14">
+							<h4 class="p-b-7">
+								<a href="blog-detail.html" class="m-text11">
+									New York SS 2018 Street Style: Annina Mislin
+								</a>
+							</h4>
+
+							<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
+							<span class="s-text6">on</span> <span class="s-text7">July 2, 2017</span>
+
+							<p class="s-text8 p-t-16">
+								Proin nec vehicula lorem, a efficitur ex. Nam vehicula nulla vel erat tincidunt, sed hendrerit ligula porttitor. Fusce sit amet maximus nunc
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+{% endblock %}

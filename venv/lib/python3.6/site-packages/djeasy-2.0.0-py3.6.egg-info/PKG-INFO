@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: djeasy
+Version: 2.0.0
+Summary: Django Easy Engine
+Home-page: https://github.com/AliYmn/djeasy
+Author: Ali Yaman
+Author-email: aliymn.db@gmail.com
+License: MIT
+Download-URL: https://github.com/AliYmn/djeasy
+Description: UNKNOWN
+Keywords: django install server
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6

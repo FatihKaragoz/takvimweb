@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+{% endblock %}
+
+{% block container %}
+		<div class="container">
+        {% for doc in blog %}
+			<div class="row">
+				<div class="col-md-8 col-lg-9 p-b-80">
+					<div class="p-r-50 p-r-0-lg">
+						<div class="p-b-40">
+							<div class="blog-detail-img wrap-pic-w">
+								<img src="{{ doc.image.url }}" alt="IMG-BLOG">
+							</div>
+
+							<div class="blog-detail-txt p-t-33">
+								<h4 class="p-b-11 m-text24">
+									{{ doc.caption }}
+								</h4>
+
+								<div class="s-text8 flex-w flex-m p-b-21">
+									<span>
+										Takvim, Baskı, Tahihçe
+										<span class="m-l-3 m-r-6">|</span>
+									</span>
+								</div>
+
+								<p class="p-b-25">
+                                    {{ doc.contain }}
+								</p>
+							</div>
+
+							<div class="flex-m flex-w p-t-20">
+								<span class="s-text20 p-r-20">
+									Tags
+								</span>
+
+								<div class="wrap-tags flex-w">
+									<a href="#" class="tag-item">
+										Takvim
+									</a>
+
+									<a href="#" class="tag-item">
+										Baskı
+									</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-md-4 col-lg-3 p-b-80">
+					<div class="rightbar">
+						<!-- Search -->
+						<div class="pos-relative bo11 of-hidden">
+							<input class="s-text7 size16 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search">
+
+							<button class="flex-c-m size5 ab-r-m color1 color0-hov trans-0-4">
+								<i class="fs-13 fa fa-search" aria-hidden="true"></i>
+							</button>
+						</div>
+
+						<!-- Categories -->
+						<h4 class="m-text23 p-t-56 p-b-34">
+							Categories
+						</h4>
+
+						<ul>
+							<li class="p-t-6 p-b-8 bo6">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									Fashion
+								</a>
+							</li>
+
+							<li class="p-t-6 p-b-8 bo7">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									Beauty
+								</a>
+							</li>
+
+							<li class="p-t-6 p-b-8 bo7">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									Street Style
+								</a>
+							</li>
+
+							<li class="p-t-6 p-b-8 bo7">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									Life Style
+								</a>
+							</li>
+
+							<li class="p-t-6 p-b-8 bo7">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									DIY & Crafts
+								</a>
+							</li>
+						</ul>
+
+						<!-- Featured Products -->
+						<h4 class="m-text23 p-t-65 p-b-34">
+							Önerilen ürün
+						</h4>
+
+						{% for pro in products %}
+                            {% if pro.menuItem == doc.featured %}
+                                <ul class="bgwhite">
+                                    <li class="flex-w p-b-20">
+                                        <a href="{% url 'product' doc.featured %}" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
+                                            <img src="{{ pro.image.url }}" alt="IMG-PRODUCT" style="max-height: 400px;max-width: 400px;">
+                                        </a>
+                                        <div class="w-size23 p-t-5">
+                                            <a href="{% url 'product' doc.featured %}" class="s-text20">
+                                                {{ pro.menuExp }}
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            {% endif %}
+                        {% endfor %}
+
+
+						<!-- Tags -->
+						<h4 class="m-text23 p-t-50 p-b-25">
+							Tags
+						</h4>
+
+						<div class="wrap-tags flex-w">
+							<a href="{% url 'home' %}" class="tag-item">
+								Takvim
+							</a>
+
+							<a href="{% url 'home' %}" class="tag-item">
+								Baskı
+							</a>
+
+							<a href="{% url 'product' 'gemici3' %}" class="tag-item">
+								Gemici Takvim
+							</a>
+                            <a href="{% url 'product' 'ajanda' %}" class="tag-item">
+								Ajanda
+							</a>
+                            <a href="{% url 'product' 'masaustu' %}" class="tag-item">
+								Masaüstü Takvim
+							</a>
+                            <a href="{% url 'product' 'akademik' %}" class="tag-item">
+								Akademik Takvim
+							</a>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+        {% endfor %}
+		</div>
+{% endblock %}
