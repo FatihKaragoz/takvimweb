@@ -40,6 +40,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 ///////////////////////////////////////////////////////////
 */
 
+
 @font-face {
   font-family: Montserrat-Regular;
   src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
@@ -138,9 +139,8 @@ ul, li {
 
 
 /* ------------------------------------ */
-input {
-	outline: none;
-	border: none !important;
+.inputClass {
+    background-image: url('../images/topDesign.png');
 }
 
 textarea {
@@ -1991,6 +1991,9 @@ li.sale-noti > a {
   position: relative;
   width: 100%;
   margin-bottom: 15px;
+}
+.slick3-dots input{
+    width: 100%;
 }
 
 .slick3-dots li img {

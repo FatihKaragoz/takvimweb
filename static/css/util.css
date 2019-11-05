@@ -2355,6 +2355,7 @@
 -----------------------------------------------------------
 */
 .wrap-pic-w img {width: 100%;}
+.wrap-pic-w input {width: 100%;}
 .wrap-pic-max-w img {max-width: 100%;}
 
 /* ------------------------------------ */
@@ -3581,6 +3582,10 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 /*[ Width Size ]
 ///////////////////////////////////////////////////////////
 */
+.w-sizesmall {
+	width: 90px;
+}
+
 .w-size1 {
 	width: 161px;
 }
@@ -3716,6 +3721,7 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 .bg6 {background-color: #f0f0f0;}
 .bg7 {background-color: #333333;}
 .bg8 {background-color: #e6e6e6;}
+.bg9 {background-color: #909090;}
 
 .bg-img1 {
 	background-repeat: no-repeat;
@@ -3963,8 +3969,8 @@ EFFECT   EFFECT   EFFECT   EFFECT   EFFECT   EFFECT  EFFECT
 ///////////////////////////////////////////////////////////
 */
 .hov1:hover {
-    background-color: #e65540;
-  	color: white;
+    background-color: #392fe6;
+  	color: black;
 }
 
 .hov2:hover {

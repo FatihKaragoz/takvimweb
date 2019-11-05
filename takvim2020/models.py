@@ -11,9 +11,10 @@ ORDER_STATUS = (
 )
 
 PRODUCT_CATEGORY = {
+    ("gemicieko","GEMİCİ EKO"),
     ("gemici3","GEMİCİ 3 Spiral"),
+    ("gemici2","GEMİCİ 2 Spiral"),
     ("gemici1","GEMİCİ 1 Spiral"),
-    ("akademik","AKADEMİK"),
     ("masaustu","MASAUSTU"),
     ("ajanda","AJANDA"),
 }
@@ -46,6 +47,12 @@ class colorname(models.Model):
     def __str__(self):
         return self.colorname
 
+class instagramgonderi(models.Model):
+    gonderi_id = models.UUIDField(primary_key=True,default=uuid.uuid4(),editable=False,blank=True,unique=True)
+    url = models.CharField(verbose_name="URL",max_length=5000)
+
+    def __str__(self):
+        return self.url
 class color(models.Model):
     color2_id = models.UUIDField(primary_key=True,default=uuid.uuid4(),editable=False,blank=True,unique=True)
     exp = models.CharField(verbose_name="Renk açıklama",max_length=100)
@@ -84,12 +91,12 @@ class price(models.Model):
     price_id = models.UUIDField(primary_key=True,default=uuid.uuid4(),editable=False,blank=True,unique=True)
     exp = models.CharField(max_length=100,verbose_name="Açıklama")
     model = models.CharField(choices=PRODUCT_CATEGORY,max_length=50,verbose_name="Model")
-    price50_100 = models.FloatField(verbose_name="Fiyat (50-100 adet için)")
-    price100_200 = models.FloatField(verbose_name="Fiyat (100-200 adet için)")
-    price200_500 = models.FloatField(verbose_name="Fiyat (200-500 adet için)")
-    price500_1000 = models.FloatField(verbose_name="Fiyat (500-1000 adet için)")
-    price1000_2000 = models.FloatField(verbose_name="Fiyat (1000-5000 adet için)")
-    price2000_5000 = models.FloatField(verbose_name="Fiyat (1000-5000 adet için)")
+    price50_100 = models.DecimalField(verbose_name="Fiyat (50-100 adet için)",max_digits=4, decimal_places=2)
+    price100_200 = models.DecimalField(verbose_name="Fiyat (100-200 adet için)",max_digits=4,decimal_places=2)
+    price200_500 = models.DecimalField(verbose_name="Fiyat (200-500 adet için)",max_digits=4, decimal_places=2)
+    price500_1000 = models.DecimalField(verbose_name="Fiyat (500-1000 adet için)",max_digits=4, decimal_places=2)
+    price1000_2000 = models.DecimalField(verbose_name="Fiyat (1000-2000 adet için)",max_digits=4, decimal_places=2)
+    price2000_5000 = models.DecimalField(verbose_name="Fiyat (2000-5000 adet için)",max_digits=4, decimal_places=2)
     priceDesignService = models.IntegerField(verbose_name="Tasarim hizmet bedeli")
 
     def __str__(self):
@@ -107,7 +114,6 @@ class size(models.Model):
 
     def __str__(self):
         return self.name
-
 
 class userInformation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='MainUser')
@@ -127,6 +133,29 @@ class gemici1(models.Model):
     category = models.CharField(choices=PRODUCT_CATEGORY,max_length=20,verbose_name="Kategori")
     exp = models.CharField(max_length=100,blank=True)
     size1 = models.ForeignKey(size,verbose_name="Ölçü 1 için  boyut - renk - fotoğraglar ",related_name="OlcuGemici",on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.product_id)
+
+class gemici2(models.Model):
+    product_id = models.UUIDField(primary_key=True,default=uuid.uuid4(),editable=False,blank=True,unique=True)
+    author = models.ForeignKey(User,on_delete=models.CASCADE)
+    name = models.CharField(max_length=50,default="GEMİCİ 3 Spiral")
+    category = models.CharField(choices=PRODUCT_CATEGORY,max_length=20,verbose_name="Kategori")
+    exp = models.CharField(max_length=100,blank=True)
+    size1 = models.ForeignKey(size,verbose_name="Ölçü 1 için  boyut - renk - fotoğraglar ",related_name="OlcuGemici2",on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.product_id)
+
+
+class gemicieko(models.Model):
+    product_id = models.UUIDField(primary_key=True,default=uuid.uuid4(),editable=False,blank=True,unique=True)
+    author = models.ForeignKey(User,on_delete=models.CASCADE)
+    name = models.CharField(max_length=50,default="GEMİCİ 3 Spiral")
+    category = models.CharField(choices=PRODUCT_CATEGORY,max_length=20,verbose_name="Kategori")
+    exp = models.CharField(max_length=100,blank=True)
+    size1 = models.ForeignKey(size,verbose_name="Ölçü 1 için  boyut - renk - fotoğraglar ",related_name="OlcuGemiciEko",on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.product_id)

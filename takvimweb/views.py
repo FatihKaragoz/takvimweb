@@ -1,6 +1,6 @@
 from takvimweb import eMailAuth
 from django.shortcuts import render
-from takvim2020.models import menuC,gemici3,gemici1,slider,blog,masaustu,akademik,ajanda,siparis,contact
+from takvim2020.models import menuC,gemici3,gemici2,gemici1,gemicieko,slider,blog,masaustu,akademik,ajanda,siparis,contact
 from django.utils.datastructures import MultiValueDictKeyError
 
 import hashlib
@@ -10,7 +10,7 @@ def homeview(request):
     products2 = menuC.objects.filter(menuposition=2)
     products11 = ""
     products12 = ""
-    produ
+    products13 = ""
     products21 = ""
     products22 = ""
     products23 = ""
@@ -115,7 +115,7 @@ def productview(request,productId="all"):
         comName = request.POST['comName']
         address = request.POST['address']
 
-        if productId == "gemici3" or productId == "gemici1" or productId == "masaustu":
+        if productId == "gemici3" or productId == "gemici1" or productId == "masaustu" or productId == "gemici2" or productId == "gemicieko":
             if request.POST['designValue'] == "True":
                 designService = "Evet"
             if request.POST['designValue'] == "False":
@@ -167,6 +167,51 @@ def productview(request,productId="all"):
                 orderOkMessage = "False"
             sipariss.save()
             orderOkMessage = "True"
+
+    if productId == "gemici2":
+        product = gemici2.objects.all()
+        if request.method == 'POST':
+            sipariss = siparis()
+            sipariss.pieces = pieces
+            sipariss.fullname = fullname
+            sipariss.address = address
+            sipariss.phone = phone
+            sipariss.email = email
+            sipariss.price = price
+            sipariss.sumprice = str(float(price) * float(pieces))
+            sipariss.product_id = productId
+            sipariss.comName = comName
+            sipariss.designService = designService
+            try:
+                sipariss.design = request.FILES['pic1']
+                sipariss.design1 = request.FILES['pic2']
+            except MultiValueDictKeyError:
+                orderOkMessage = "False"
+            sipariss.save()
+            orderOkMessage = "True"
+
+    if productId == "gemicieko":
+        product = gemicieko.objects.all()
+        if request.method == 'POST':
+            sipariss = siparis()
+            sipariss.pieces = pieces
+            sipariss.fullname = fullname
+            sipariss.address = address
+            sipariss.phone = phone
+            sipariss.email = email
+            sipariss.price = price
+            sipariss.sumprice = str(float(price) * float(pieces))
+            sipariss.product_id = productId
+            sipariss.comName = comName
+            sipariss.designService = designService
+            try:
+                sipariss.design = request.FILES['pic1']
+                sipariss.design1 = request.FILES['pic2']
+            except MultiValueDictKeyError:
+                orderOkMessage = "False"
+            sipariss.save()
+            orderOkMessage = "True"
+
     if productId == "masaustu":
         product = masaustu.objects.all()
         if request.method == 'POST':

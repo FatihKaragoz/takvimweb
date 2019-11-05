@@ -1,8 +1,7 @@
 from django.contrib import admin
-from .models import menuC,colorname,size,color,price,userInformation,gemici3,gemici1,akademik,masaustu,ajanda,blog,slider,siparis,contact
+from .models import menuC,colorname,size,color,price,userInformation,gemici3,gemici1,gemici2,gemicieko,akademik,masaustu,ajanda,blog,slider,siparis,contact,instagramgonderi
 
 # Register your models here.
-
 class menuAdmin(admin.ModelAdmin):
     list_display = ("menuItem","menuposition","image")
     list_filter = ("menuItem","menuposition")
@@ -45,11 +44,20 @@ class gemici3admin(admin.ModelAdmin):
                     "size3" )
 admin.site.register(gemici3,gemici3admin)
 
-
 class gemici1admin(admin.ModelAdmin):
     list_display = ("name","category","author","size1")
 
 admin.site.register(gemici1,gemici1admin)
+
+class gemici2admin(admin.ModelAdmin):
+    list_display = ("name","category","author","exp","size1")
+
+admin.site.register(gemici2,gemici2admin)
+
+class gemiciekoadmin(admin.ModelAdmin):
+    list_display = ("name","category","author","exp","size1")
+
+admin.site.register(gemicieko,gemiciekoadmin)
 
 
 class masaustuadmin(admin.ModelAdmin):
@@ -62,12 +70,10 @@ class akademikadmin(admin.ModelAdmin):
 
 admin.site.register(akademik,akademikadmin)
 
-
 class ajandaadmin(admin.ModelAdmin):
     list_display = ("name","category","author","size1","size2")
 
 admin.site.register(ajanda,ajandaadmin)
-
 
 class blogAdmin(admin.ModelAdmin):
     list_display = ("caption","contain","menuimage","image")
@@ -79,14 +85,17 @@ class contactAdmin(admin.ModelAdmin):
 
 admin.site.register(contact,contactAdmin)
 
-
 class SliderAdmin(admin.ModelAdmin):
     list_display = ("baslik","aciklama","category","slider_id")
 
 admin.site.register(slider,SliderAdmin)
 
-
 class SiparisAdmin(admin.ModelAdmin):
     list_display = ("fullname","comName","address","phone","email","color","size","pieces","product_id","design","design1","price",'sumprice','designService')
 
 admin.site.register(siparis,SiparisAdmin)
+
+class instagramGonderiAdmin(admin.ModelAdmin):
+    list_display = ("gonderi_id","url")
+
+admin.site.register(instagramgonderi,instagramGonderiAdmin)
