@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f47aed3f-0ad2-4b0a-ae51-eb2c8c4da929" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/vendor/perfect-scrollbar/perfect-scrollbar.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/perfect-scrollbar/perfect-scrollbar.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/vendor/slick/slick.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/slick/slick.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/vendor/slick/slick.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/slick/slick.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -130,6 +133,7 @@
       <workItem from="1572863145335" duration="21672000" />
       <workItem from="1572946443170" duration="12834000" />
       <workItem from="1572993249272" duration="1373000" />
+      <workItem from="1573135779762" duration="1944000" />
     </task>
     <servers />
   </component>

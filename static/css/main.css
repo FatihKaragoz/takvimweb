@@ -1358,10 +1358,10 @@ li.sale-noti > a {
 }
 
 .item-slick1 {
-  height: 750px;
-  background-size: cover;
+  height: 100%;
+  background-size: 100% auto;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: unset;
 }
 
 .arrow-slick1 {

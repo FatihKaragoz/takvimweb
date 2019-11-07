@@ -78,7 +78,7 @@
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 speed: 500,
-                swipe: false,
+                swipe: true,
                 swipeToSlide: false,
                 touchMove: false,
                 touchThreshold: 5,
