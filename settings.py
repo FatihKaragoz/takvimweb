@@ -11,6 +11,22 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import netifaces
+
+# Find out what the IP addresses are at run time
+# This is necessary because otherwise Gunicorn will reject the connections
+#def ip_addresses():
+#    ip_list = ['157.245.123.237','2020takvim.com','www.2020takvim.com','127.0.0.1']
+#    for interface in netifaces.interfaces():
+#        addrs = netifaces.ifaddresses(interface)
+#        for x in (netifaces.AF_INET, netifaces.AF_INET6):
+#            if x in addrs:
+#                ip_list.append(addrs[x][0]['addr'])
+#    return ip_list
+
+ALLOWED_HOSTS = [*]
+
+USE_X_FORWARDED_HOST = True
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +39,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ax)@352hm0!k(v5+ht(s!v$0_em09j(ls=!qp)iv+*&%)7tig='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = False
 
 
 # Application definition
@@ -123,3 +137,14 @@ STATICFILES_DIRS = ( os.path.join('static'), )
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+#def ip_addresses():
+#    ip_list = ['157.245.123.237','2020takvim.com','www.2020takvim.com','127.0.0.1']
+#    for interface in netifaces.interfaces():
+#        addrs = netifaces.ifaddresses(interface)
+#        for x in (netifaces.AF_INET, netifaces.AF_INET6):
+#            if x in addrs:
+#                ip_list.append(addrs[x][0]['addr'])
+#    return ip_list
+
+# Discover our IP address
+#ALLOWED_HOSTS = ip_addresses()
