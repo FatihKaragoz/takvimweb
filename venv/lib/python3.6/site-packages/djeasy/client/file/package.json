@@ -1,0 +1,44 @@
+{
+    "package": [
+        {
+            "name": "sudo apt-get update",
+            "message": "Updating package, please wait ..."
+        },
+
+        {
+            "name": "sudo apt-get install python-dev python3-dev libpq-dev nginx",
+            "message": "The necessary packages are being installed."
+        }
+
+
+    ],
+
+    "gunicorn": [
+
+        {
+            "name": "sudo systemctl {} restart",
+            "message": "Gunicorn is restarting, please wait ..."
+        }
+
+    ],
+
+        "nginx": [
+
+        {
+            "name": "sudo nginx -t",
+            "message": "Testing for Nginx ..."
+        },
+
+        {
+            "name": "sudo ufw delete allow 8000",
+            "message": "The Nginx 8000 port has been deleted."
+        },
+
+        {
+            "name": "sudo systemctl restart nginx",
+            "message": "Nginx is restarting, please wait ..."
+        }
+
+    ]
+}
+

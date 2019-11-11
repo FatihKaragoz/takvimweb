@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block externalCSS %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
+{% endblock %}
+
+{% block container %}
+    <div class="container bgwhite p-t-35 p-b-80">
+		<div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100 p-t-50 p-b-90">
+                    <form class="login100-form validate-form flex-sb flex-w" action="login.html" method="post" id="formSignin">
+                        {% csrf_token %}
+                        <span class="login100-form-title p-b-51">
+                            Giriş
+                        </span>
+
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "E-mail adı gerekli">
+                            <input class="input100" type="text" name="email" placeholder="e-mail">
+                            <span class="focus-input100"></span>
+                        </div>
+
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "Parola gerekli">
+                            <input class="input100" type="password" name="pass" placeholder="parola">
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="flex-sb-m w-full p-t-3 p-b-24">
+                            <div class="contact100-form-checkbox">
+                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                                <label class="label-checkbox100" for="ckb1">
+                                    Beni hatırla
+                                </label>
+                            </div>
+
+                            <div>
+                                <a href="#" class="txt1">
+                                    Parolamı unuttum
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="container-login100-form-btn m-t-17">
+                            <button class="login100-form-btn" id="submitSignin">
+                                Giriş
+                            </button>
+                        </div>
+                    </form>
+                    <form class="login100-form validate-form flex-sb flex-w" id="formSignup" method="post" action="{% url 'logon' %}">
+                        {% csrf_token %}
+                        <div class="container-login100-form-btn m-t-17">
+                            <button class="login100-form-btn" id="submitSignup">
+                                Kayıt ol!
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+	    </div>
+    </div>
+{% endblock %}
+
+{% block externalJS %}
+    <script src="{% static 'login/js/main.js' %}"></script>
+    <script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+    <script type="text/javascript">
+        var formSignin = document.getElementById("signinForm");
+        document.getElementById("submitSignin").addEventListener("click", function () {
+            formSignin.submit();
+        });
+        var formSignup = document.getElementById("signupForm");
+        document.getElementById("submitSignup").addEventListener("click", function () {
+            formSignup.submit();
+        });
+    </script>
+{% endblock %}
