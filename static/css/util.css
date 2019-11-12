@@ -4095,11 +4095,10 @@ RESPONSIVE  RESPONSIVE  RESPONSIVE  RESPONSIVE   RESPONSIVE
 */
 @media (max-width: 768px) {
 	.respon5 {
-		width: 100%;
+		width: 60%;
 	}
 
 }
-
 
 /*[ SM ]
 ///////////////////////////////////////////////////////////
@@ -4128,6 +4127,7 @@ RESPONSIVE  RESPONSIVE  RESPONSIVE  RESPONSIVE   RESPONSIVE
 		border-top: 1px solid #d9d9d9;
 		border-bottom: 1px solid #d9d9d9;
 	}
+
 }
 
 /*[ SSM ]

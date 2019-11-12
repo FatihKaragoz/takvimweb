@@ -1,8 +1,10 @@
+import uu
+
 from takvimweb import eMailAuth
 from django.shortcuts import render
 from takvim2020.models import menuC,gemici3,gemici2,gemici1,gemicieko,slider,blog,masaustu,akademik,ajanda,siparis,contact
 from django.utils.datastructures import MultiValueDictKeyError
-
+import uuid
 import hashlib
 
 def homeview(request):
@@ -90,8 +92,11 @@ def logon(request):
 
 def productview(request,productId="all"):
     pieces = ""
-    size = ""
-    color = ""
+    if productId=="gemici3" or productId=="gemici1" or productId=="gemici2" or productId=="gemicieko":
+        size = "32 x 77.5 cm"
+    else:
+        size = "17 x 24 cm"
+    color = "Empty"
     email = ""
     phone = ""
     fullname = ""
@@ -103,10 +108,10 @@ def productview(request,productId="all"):
 
     if request.method == 'POST':
         pieces = request.POST['num-product']
-        if productId == "gemici3" or productId == "gemici1" or productId == "masaustu" or productId=="ajanda":
-            size = request.POST['sizeSelection']
-            if productId == "gemici3":
-                color = request.POST['color']
+        # if productId == "gemici3" or productId == "gemici1" or productId == "masaustu" or productId=="ajanda":
+            # size = request.POST['sizeSelection']
+            # if productId == "gemici3":
+            #     color = request.POST['color']
         price = request.POST['bum-product']
         fullname = request.POST['fullname']
 
@@ -138,12 +143,15 @@ def productview(request,productId="all"):
             sipariss.product_id = productId
             sipariss.comName = comName
             sipariss.designService = designService
+            summPrice = float(price)*float(pieces)
             try:
                 sipariss.design = request.FILES['pic1']
                 sipariss.design1 = request.FILES['pic2']
+                siparis.objects.create(siparis_id=uuid.uuid4(),pieces=pieces,size=size,fullname=fullname,address=address,phone=phone,email=email,color=color,price=price,sumprice=summPrice,product_id=productId,comName=comName,designService=designService,design=request.FILES['pic1'],design1=request.FILES['pic2'])
             except MultiValueDictKeyError:
                 orderOkMessage = "True"
-            sipariss.save()
+                siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname, address=address, phone=phone, email=email, color=color, price=price, sumprice=summPrice, product_id=productId, comName=comName, designService=designService, design1="", design="")
+            # sipariss.save()
             orderOkMessage = "True"
 
     if productId == "gemici1":
@@ -151,6 +159,7 @@ def productview(request,productId="all"):
         if request.method == 'POST':
             sipariss = siparis()
             sipariss.pieces = pieces
+            sipariss.size = size
             sipariss.fullname = fullname
             sipariss.address = address
             sipariss.phone = phone
@@ -160,12 +169,21 @@ def productview(request,productId="all"):
             sipariss.product_id = productId
             sipariss.comName = comName
             sipariss.designService = designService
+            summPrice = float(price)*float(pieces)
+
             try:
                 sipariss.design = request.FILES['pic1']
                 sipariss.design1 = request.FILES['pic2']
+                siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname,
+                                       address=address, phone=phone, email=email, color=color, price=price,
+                                       sumprice=summPrice, product_id=productId, comName=comName,
+                                       designService=designService, design=request.FILES['pic1'],
+                                       design1=request.FILES['pic2'])
             except MultiValueDictKeyError:
                 orderOkMessage = "False"
-            sipariss.save()
+                siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname, address=address, phone=phone, email=email, color=color, price=price, sumprice=summPrice, product_id=productId, comName=comName, designService=designService, design1="", design="")
+
+            # sipariss.save()
             orderOkMessage = "True"
 
     if productId == "gemici2":
@@ -175,6 +193,7 @@ def productview(request,productId="all"):
             sipariss.pieces = pieces
             sipariss.fullname = fullname
             sipariss.address = address
+            sipariss.size = size
             sipariss.phone = phone
             sipariss.email = email
             sipariss.price = price
@@ -182,12 +201,20 @@ def productview(request,productId="all"):
             sipariss.product_id = productId
             sipariss.comName = comName
             sipariss.designService = designService
+            summPrice = float(price)*float(pieces)
+
             try:
                 sipariss.design = request.FILES['pic1']
                 sipariss.design1 = request.FILES['pic2']
+                siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname,
+                                       address=address, phone=phone, email=email, color=color, price=price,
+                                       sumprice=summPrice, product_id=productId, comName=comName,
+                                       designService=designService, design=request.FILES['pic1'],
+                                       design1=request.FILES['pic2'])
             except MultiValueDictKeyError:
+                siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname, address=address, phone=phone, email=email, color=color, price=price, sumprice=summPrice, product_id=productId, comName=comName, designService=designService, design1="", design="")
                 orderOkMessage = "False"
-            sipariss.save()
+            # sipariss.save()
             orderOkMessage = "True"
 
     if productId == "gemicieko":
@@ -204,12 +231,15 @@ def productview(request,productId="all"):
             sipariss.product_id = productId
             sipariss.comName = comName
             sipariss.designService = designService
+            summPrice = float(price)*float(pieces)
+
             try:
                 sipariss.design = request.FILES['pic1']
                 sipariss.design1 = request.FILES['pic2']
             except MultiValueDictKeyError:
+                siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname, address=address, phone=phone, email=email, color=color, price=price, sumprice=summPrice, product_id=productId, comName=comName, designService=designService, design1="", design="")
                 orderOkMessage = "False"
-            sipariss.save()
+            # sipariss.save()
             orderOkMessage = "True"
 
     if productId == "masaustu":
@@ -227,12 +257,21 @@ def productview(request,productId="all"):
             sipariss.product_id = productId
             sipariss.comName = comName
             sipariss.designService = designService
+            summPrice = float(price)*float(pieces)
+
             try:
                 sipariss.design = request.FILES['pic1']
                 sipariss.design1 = request.FILES['pic2']
+                siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname,
+                                       address=address, phone=phone, email=email, color=color, price=price,
+                                       sumprice=summPrice, product_id=productId, comName=comName,
+                                       designService=designService, design=request.FILES['pic1'],
+                                       design1=request.FILES['pic2'])
             except MultiValueDictKeyError:
+                siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname, address=address, phone=phone, email=email, color=color, price=price, sumprice=summPrice, product_id=productId, comName=comName, designService=designService, design1="", design="")
+
                 orderOkMessage = "False"
-            sipariss.save()
+            # sipariss.save()
             orderOkMessage = "True"
 
     if productId == "ajanda":
@@ -249,7 +288,14 @@ def productview(request,productId="all"):
             sipariss.sumprice = str(float(price) * float(pieces))
             sipariss.product_id = productId
             sipariss.comName = comName
-            sipariss.save()
+            summPrice = float(price)*float(pieces)
+
+            siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname,
+                                   address=address, phone=phone, email=email, price=price,
+                                   sumprice=summPrice, product_id=productId, comName=comName,
+                                   designService=designService, design1="", design="")
+
+            # sipariss.save()
             orderOkMessage = "True"
 
     if productId == "akademik":
@@ -258,6 +304,7 @@ def productview(request,productId="all"):
             product = akademik.objects.all()
             sipariss = siparis()
             sipariss.pieces = pieces
+            sipariss.size = size
             sipariss.fullname = fullname
             sipariss.address = address
             sipariss.phone = phone
@@ -266,7 +313,9 @@ def productview(request,productId="all"):
             sipariss.sumprice = str(float(price) * float(pieces))
             sipariss.product_id = productId
             sipariss.comName = comName
-            sipariss.save()
+            summPrice = float(price)*float(pieces)
+
+            # sipariss.save()
             orderOkMessage = "True"
 
     return render(request,"product.html",{'product':product,'orderOkMessage':orderOkMessage})

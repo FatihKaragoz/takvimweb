@@ -30,7 +30,7 @@
                 {% csrf_token %}
                     <div class="flex-w flex-sb">
 
-                    <div class="w-size15 p-t-1 respon5">
+                    <div class="w-size15 p-t-1 respon5 centered">
                         <div class="wrap-slick3 flex-t flex-w">
                         {% if doc.category == "gemici3" or doc.category == "gemici1" or doc.category == "masaustu" or doc.category == "gemici2" or doc.category == "gemicieko" %}
                            <div class="slick3">
@@ -47,13 +47,13 @@
                                         <img id="imagefront" style="height:59vh;" name="imagefront" src="{% if doc.category == "gemici3" or doc.category == "gemici1" or doc.category == "masaustu" or doc.category == "ajanda" or doc.category == "akademik"  or doc.category == "gemici2" or doc.category == "gemicieko" %}{{ doc.size1.color1.frontimage.url }}{% endif %}" alt="IMG-PRODUCT">
                                     </div>
                                 </div>
-                            {% if doc.category == "gemici3" %}
-                                <div class="item-slick3" id="backthumb">
-                                    <div class="wrap-pic-w">
-                                        <img id="imageback" style="height:59vh;" name="imageback" src="{{ doc.size1.color2.frontimage.url }}" alt="IMG-PRODUCT">
-                                    </div>
-                                </div>
-                            {% endif %}
+{#                            {% if doc.category == "gemici3" %}#}
+{#                                <div class="item-slick3" id="backthumb">#}
+{#                                    <div class="wrap-pic-w">#}
+{#                                        <img id="imageback" style="height:59vh;" name="imageback" src="{{ doc.size1.color2.frontimage.url }}" alt="IMG-PRODUCT">#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            {% endif %}#}
                             </div>
                          {% if doc.category == "gemici3" or doc.category == "gemici1" or doc.category == "masaustu" or doc.category == "gemici2" %}
                             <div class="slick3">
@@ -66,7 +66,7 @@
                         {% endif %}
                         </div>
                     </div>
-                    <div class="w-size20 p-t-8 respon5">
+                    <div class="w-size20 p-t-8 respon6 centered">
                       <center>  <h4 class="product-detail-name m-text16 p-b-13">
                             {{ doc.name }}
                         </h4>
@@ -98,11 +98,11 @@
                             </div>
                         <hr>
                             <div class="d-flex flex-c-m justify-content-start p-b-0">
-                                <div class="s-text12 w-size14 t-left">
+                                <div class="s-text12 w-size14 t-left ">
                                      &nbsp;&nbsp;&nbsp;&nbsp; ADET FİYAT :
                                 </div>
-                                <div class="border-0 of-hidden m-r-22 m-t-0 m-b-0" style="width:fit-content">
-                                        <input type="text" style="padding-right: 5px; text-align: right;width: 160px;font-size: 30px;font-weight: bold;color: rgba(54,179,24,0.91)" id="bum-product" name="bum-product" value="{% if doc.category == "akademik" %} {{ doc.size1.price.price1000_2000|safe }} {% else %}{{ doc.size1.price.price100_200|safe }}{% endif %}" readonly>
+                                <div class="border-0 visible-true  m-r-22 m-t-0 m-b-0 p-r-12" style="width:fit-content">
+                                        <input type="text" style="padding-right: 10px; text-align: right;width: 160px;font-size: 30px;font-weight: bold;color: rgba(54,179,24,0.91)" id="bum-product" name="bum-product" value="{% if doc.category == "akademik" %} {{ doc.size1.price.price1000_2000|safe }} {% else %}{{ doc.size1.price.price100_200|safe }}{% endif %}" readonly>
                                 </div>
                                 <div class="s-text12 w-sizesmall t-left">
                                     TL
@@ -114,8 +114,8 @@
                                         &nbsp;&nbsp;&nbsp; TOPLAM FİYAT :
                                     </div>
 
-                                    <div class="border-0 of-hidden m-r-22 m-t-0 m-b-0" style="width:auto; display: flex;">
-                                        <input type="text" id="sumofPrice" style="padding-right: 5px;margin-right: 5px; text-align: right;width: 160px;font-size: 30px;font-weight: bold;color: rgba(54,179,24,0.91)" readonly>
+                                    <div class="border-0 visible-true  m-r-22 m-t-0 m-b-0" style="width:auto; display: flex;">
+                                        <input type="text" id="sumofPrice" style="padding-right: 10px;margin-right: 5px; text-align: right;width: 160px;font-size: 30px;font-weight: bold;color: rgba(54,179,24,0.91)" readonly>
                                         <script type="text/javascript">
 
                                             function changing(value){
@@ -180,8 +180,8 @@
                                     <div class="s-text12 w-size14 t-left">
                                         &nbsp;&nbsp;&nbsp; KDV (%18) :
                                     </div>
-                                    <div class="border-0 of-hidden m-r-22 m-t-0 m-b-0" style="width:auto">
-                                        <input type="text" step="any" style="text-align: right;width: 160px;font-size: 19px;font-weight: bold;color: rgba(54,179,24,0.91)" id="kdv" name="kdv" value="" readonly>
+                                    <div class="border-0 visible-true  m-r-22 m-t-0 m-b-0" style="width:auto">
+                                        <input type="text" step="any" style="padding-right: 10px; text-align: right;width: 160px;font-size: 19px;font-weight: bold;color: rgba(54,179,24,0.91)" id="kdv" name="kdv" value="" readonly>
                                     </div>
                                     <div class="s-text12 w-sizesmall t-left">
                                     TL
@@ -192,8 +192,8 @@
                                     <div class="s-text12 w-size14 t-left">
                                         &nbsp;&nbsp;&nbsp; GENEL TOPLAM :
                                     </div>
-                                    <div class="border-0 of-hidden m-r-22 m-t-0 m-b-0" style="width:auto">
-                                        <input type="text" style="text-align: right;width: 160px;font-size: 28px;font-weight: bold;color: rgba(54,179,24,0.91)" id="sum" name="sum" value="" readonly>
+                                    <div class="border-0 visible-true m-r-22 m-t-0 m-b-0" style="width:auto">
+                                        <input type="text" style="padding-right: 10px;text-align: right;width: 160px;font-size: 28px;font-weight: bold;color: rgba(54,179,24,0.91)" id="sum" name="sum" value="" readonly>
                                     </div>
                                     <div class="s-text12 w-sizesmall t-left">
                                     TL
@@ -202,10 +202,10 @@
                         <hr>
                         {% if doc.category == "gemici3" or doc.category == "gemici1" or doc.category == "masaustu"  or doc.category == "gemici2" or doc.category == "gemicieko" %}
                             <div class="flex-t flex-c-m p-b-10">
-                                    <div class="s-text15 w-size28 t-center">
+                                    <div class="s-text15 w-size26 t-center">
                                     Tasarım hizmeti almak istiyorum (+{{ doc.size1.price.priceDesignService }}₺) &nbsp;&nbsp;
                                     </div>
-                                    <div class="flex-w  of-hidden m-r-22 m-t-10 m-b-10">
+                                    <div class="flex-w  visible-true  m-r-22 m-t-10 m-b-10">
                                         <div class="s-text15 w-size28 t-center">
                                             <input type="checkbox" name="designService" id="designService"  checked="checked" onchange="check(this)">
                                         </div>
@@ -220,6 +220,7 @@
                             </div>
                         {% endif %}
                             {% if doc.category == "gemici3" or doc.category == "masaustu" or doc.category == "ajanda"  or doc.category == "gemici2" or doc.category == "gemicieko" %}
+
 {#                            <div class="d-flex flex-c-m justify-content-start p-b-10 border-0">#}
 {#                                <div class="s-text15 w-size2 t-center">#}
 {#                                    Ölçü#}
@@ -385,7 +386,7 @@
                              </div>
                             </div>
                             <div class="flex-t flex-c-m flex-c- p-b-10">
-                                <div class="of-hidden m-r-22 m-t-10 m-b-10" style="width:50vw;display: flex;">
+                                <div class="of-hidden m-r-22 m-t-10 m-b-10" style="width:100%;display: flex;">
 {#                                    <div class="s-text15 w-size2 t-center flex-c-m">#}
 {#                                        Fiyat listesi :#}
 {#                                    </div>#}
@@ -393,7 +394,7 @@
                                       <thead class="thead-light">
                                         <tr>
                                           <th>Adet</th>
-                                          <td class="s-text20">50-100</td>
+                                          <td scope="col">50-100</td>
                                           <td scope="col" >100-200</td>
                                           <td scope="col">200-500 </td>
                                           <td scope="col">500-1000</td>
@@ -403,13 +404,13 @@
                                       </thead>
                                       <tbody>
                                         <tr>
-                                          <th scope="row" class="s-text15">Fiyat</th>
-                                          <td id="price50_100" >{{ doc.size1.price.price50_100 }}</td>
-                                          <td id="price100_200">{{ doc.size1.price.price100_200 }}</td>
-                                          <td id="price200_500">{{ doc.size1.price.price200_500 }}</td>
-                                          <td id="price500_1000">{{ doc.size1.price.price500_1000 }}</td>
-                                          <td id="price1000_2000">{{ doc.size1.price.price1000_2000 }}</td>
-                                          <td id="price2000_5000">{{ doc.size1.price.price2000_5000 }}</td>
+                                          <th scope="row" class="s-text15">Fiyat (TL)</th>
+                                          <td id="price50_100" >{{ doc.size1.price.price50_100 }} TL</td>
+                                          <td id="price100_200">{{ doc.size1.price.price100_200 }} TL</td>
+                                          <td id="price200_500">{{ doc.size1.price.price200_500 }} TL</td>
+                                          <td id="price500_1000">{{ doc.size1.price.price500_1000 }} TL</td>
+                                          <td id="price1000_2000">{{ doc.size1.price.price1000_2000 }} TL</td>
+                                          <td id="price2000_5000">{{ doc.size1.price.price2000_5000 }} TL</td>
                                         </tr>
                                       </tbody>
                                     </table>
@@ -423,7 +424,7 @@
                                 if($('#designService').is(":checked")){
                                     $('#designValue').val('True');
                                     $("#upload").css("visibility", "hidden");
-                                    var newprice = parseInt($('#sumofPrice').val())+100.00;
+                                    var newprice = (parseFloat($('#sumofPrice').val())+100.00).toFixed(2);
                                     $('#topDesign').attr('src', "{% static 'images/tiklayiniz.jpg' %}");
                                     $('#bottomDesign').attr('src', "{% static 'images/tiklayiniz2.jpg' %}");
                                     $('#pic1').val("");
@@ -435,7 +436,7 @@
                                     $('#designValue').val('False');
                                     $("#upload").css("visibility", "visible");
                                     $("#designStart").css("visibility", "hidden");
-                                    var newprice = parseInt($('#sumofPrice').val())-100.00;
+                                    var newprice = (parseFloat($('#sumofPrice').val())-100.00).toFixed(2);
                                     $('#sumofPrice').val(newprice.toString());
                                     document.getElementById("sum").value=(parseFloat(document.getElementById("sumofPrice").value)+parseFloat(document.getElementById("kdv").value));
 
