@@ -4050,6 +4050,10 @@ RESPONSIVE  RESPONSIVE  RESPONSIVE  RESPONSIVE   RESPONSIVE
 		padding-left: 0px;
 	}
 
+    .respon5{
+        width: 50%;
+    }
+
 	.respon6 {
 		width: 100%;
 	}
@@ -4087,6 +4091,9 @@ RESPONSIVE  RESPONSIVE  RESPONSIVE  RESPONSIVE   RESPONSIVE
 		padding-right: 0 !important;
 		padding-left: 0 !important;
 	}
+    .respon5{
+        width: 50%;
+    }
 }
 
 
