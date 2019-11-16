@@ -6,10 +6,11 @@ from takvim2020.models import menuC,gemici3,gemici2,gemici1,gemicieko,slider,blo
 from django.utils.datastructures import MultiValueDictKeyError
 import uuid
 import hashlib
+import time
 
 def homeview(request):
-    products1 = menuC.objects.filter(menuposition=1)
-    products2 = menuC.objects.filter(menuposition=2)
+    menu = menuC.objects.order_by('-ordering')
+
     products11 = ""
     products12 = ""
     products13 = ""
@@ -17,29 +18,21 @@ def homeview(request):
     products22 = ""
     products23 = ""
     count = 1
-    for doc in products1:
+    for doc in menu:
         if count == 1:
             products11 = doc
-            print(doc.menuItem)
-            print("PRODUCT 11")
-            print(doc)
         elif count == 2:
             products12 = doc
-        elif count==3:
+        elif count == 3:
             products13 = doc
-        count+=1
-    count = 1
-    for doc in products2:
-        if count==1:
+        elif count == 4:
             products21 = doc
-        elif count==2:
+        elif count == 5:
             products22 = doc
-        elif count==3:
-            products23 = doc
         count+=1
 
+    sliders = slider.objects.order_by('-idd')
 
-    sliders = slider.objects.all()
     blogs = blog.objects.all()
     return render(request,'home.html',{'products11':products11,'products12':products12,'products13':products13,'products21':products21,'products22':products22,'products23':products23,'sliders':sliders,'blog':blogs})
 
@@ -130,50 +123,19 @@ def productview(request,productId="all"):
     if productId == "gemici3":
         product = gemici3.objects.all()
         if request.method == 'POST':
-            sipariss = siparis()
-            sipariss.pieces = pieces
-            sipariss.size = size
-            sipariss.fullname = fullname
-            sipariss.address = address
-            sipariss.phone = phone
-            sipariss.email = email
-            sipariss.color = color
-            sipariss.price = price
-            sipariss.sumprice = str(float(price)*float(pieces))
-            sipariss.product_id = productId
-            sipariss.comName = comName
-            sipariss.designService = designService
             summPrice = float(price)*float(pieces)
             try:
-                sipariss.design = request.FILES['pic1']
-                sipariss.design1 = request.FILES['pic2']
                 siparis.objects.create(siparis_id=uuid.uuid4(),pieces=pieces,size=size,fullname=fullname,address=address,phone=phone,email=email,color=color,price=price,sumprice=summPrice,product_id=productId,comName=comName,designService=designService,design=request.FILES['pic1'],design1=request.FILES['pic2'])
             except MultiValueDictKeyError:
                 orderOkMessage = "True"
                 siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname, address=address, phone=phone, email=email, color=color, price=price, sumprice=summPrice, product_id=productId, comName=comName, designService=designService, design1="", design="")
-            # sipariss.save()
             orderOkMessage = "True"
 
     if productId == "gemici1":
         product = gemici1.objects.all()
         if request.method == 'POST':
-            sipariss = siparis()
-            sipariss.pieces = pieces
-            sipariss.size = size
-            sipariss.fullname = fullname
-            sipariss.address = address
-            sipariss.phone = phone
-            sipariss.email = email
-            sipariss.price = price
-            sipariss.sumprice = str(float(price)*float(pieces))
-            sipariss.product_id = productId
-            sipariss.comName = comName
-            sipariss.designService = designService
             summPrice = float(price)*float(pieces)
-
             try:
-                sipariss.design = request.FILES['pic1']
-                sipariss.design1 = request.FILES['pic2']
                 siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname,
                                        address=address, phone=phone, email=email, color=color, price=price,
                                        sumprice=summPrice, product_id=productId, comName=comName,
@@ -182,30 +144,13 @@ def productview(request,productId="all"):
             except MultiValueDictKeyError:
                 orderOkMessage = "False"
                 siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname, address=address, phone=phone, email=email, color=color, price=price, sumprice=summPrice, product_id=productId, comName=comName, designService=designService, design1="", design="")
-
-            # sipariss.save()
             orderOkMessage = "True"
 
     if productId == "gemici2":
         product = gemici2.objects.all()
         if request.method == 'POST':
-            sipariss = siparis()
-            sipariss.pieces = pieces
-            sipariss.fullname = fullname
-            sipariss.address = address
-            sipariss.size = size
-            sipariss.phone = phone
-            sipariss.email = email
-            sipariss.price = price
-            sipariss.sumprice = str(float(price) * float(pieces))
-            sipariss.product_id = productId
-            sipariss.comName = comName
-            sipariss.designService = designService
             summPrice = float(price)*float(pieces)
-
             try:
-                sipariss.design = request.FILES['pic1']
-                sipariss.design1 = request.FILES['pic2']
                 siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname,
                                        address=address, phone=phone, email=email, color=color, price=price,
                                        sumprice=summPrice, product_id=productId, comName=comName,
@@ -214,54 +159,26 @@ def productview(request,productId="all"):
             except MultiValueDictKeyError:
                 siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname, address=address, phone=phone, email=email, color=color, price=price, sumprice=summPrice, product_id=productId, comName=comName, designService=designService, design1="", design="")
                 orderOkMessage = "False"
-            # sipariss.save()
             orderOkMessage = "True"
 
     if productId == "gemicieko":
         product = gemicieko.objects.all()
         if request.method == 'POST':
-            sipariss = siparis()
-            sipariss.pieces = pieces
-            sipariss.fullname = fullname
-            sipariss.address = address
-            sipariss.phone = phone
-            sipariss.email = email
-            sipariss.price = price
-            sipariss.sumprice = str(float(price) * float(pieces))
-            sipariss.product_id = productId
-            sipariss.comName = comName
-            sipariss.designService = designService
             summPrice = float(price)*float(pieces)
-
             try:
-                sipariss.design = request.FILES['pic1']
-                sipariss.design1 = request.FILES['pic2']
+                siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname,
+                                       address=address, phone=phone, email=email, color=color, price=price,
+                                       sumprice=summPrice, product_id=productId, comName=comName,
+                                       designService=designService, design=request.FILES['pic1'])
             except MultiValueDictKeyError:
                 siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname, address=address, phone=phone, email=email, color=color, price=price, sumprice=summPrice, product_id=productId, comName=comName, designService=designService, design1="", design="")
-                orderOkMessage = "False"
-            # sipariss.save()
             orderOkMessage = "True"
 
     if productId == "masaustu":
         product = masaustu.objects.all()
         if request.method == 'POST':
-            sipariss = siparis()
-            sipariss.pieces = pieces
-            sipariss.size = size
-            sipariss.fullname = fullname
-            sipariss.address = address
-            sipariss.phone = phone
-            sipariss.email = email
-            sipariss.price = price
-            sipariss.sumprice = str(float(price)*float(pieces))
-            sipariss.product_id = productId
-            sipariss.comName = comName
-            sipariss.designService = designService
             summPrice = float(price)*float(pieces)
-
             try:
-                sipariss.design = request.FILES['pic1']
-                sipariss.design1 = request.FILES['pic2']
                 siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname,
                                        address=address, phone=phone, email=email, color=color, price=price,
                                        sumprice=summPrice, product_id=productId, comName=comName,
@@ -269,58 +186,24 @@ def productview(request,productId="all"):
                                        design1=request.FILES['pic2'])
             except MultiValueDictKeyError:
                 siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname, address=address, phone=phone, email=email, color=color, price=price, sumprice=summPrice, product_id=productId, comName=comName, designService=designService, design1="", design="")
-
-                orderOkMessage = "False"
-            # sipariss.save()
             orderOkMessage = "True"
 
     if productId == "ajanda":
         product = ajanda.objects.all()
         if request.method == 'POST':
-            sipariss = siparis()
-            sipariss.pieces = pieces
-            sipariss.size = size
-            sipariss.fullname = fullname
-            sipariss.address = address
-            sipariss.phone = phone
-            sipariss.email = email
-            sipariss.price = price
-            sipariss.sumprice = str(float(price) * float(pieces))
-            sipariss.product_id = productId
-            sipariss.comName = comName
             summPrice = float(price)*float(pieces)
-
             siparis.objects.create(siparis_id=uuid.uuid4(), pieces=pieces, size=size, fullname=fullname,
                                    address=address, phone=phone, email=email, price=price,
                                    sumprice=summPrice, product_id=productId, comName=comName,
                                    designService=designService, design1="", design="")
-
-            # sipariss.save()
             orderOkMessage = "True"
-
     if productId == "akademik":
         product = akademik.objects.all()
         if request.method == 'POST':
             product = akademik.objects.all()
-            sipariss = siparis()
-            sipariss.pieces = pieces
-            sipariss.size = size
-            sipariss.fullname = fullname
-            sipariss.address = address
-            sipariss.phone = phone
-            sipariss.email = email
-            sipariss.price = price
-            sipariss.sumprice = str(float(price) * float(pieces))
-            sipariss.product_id = productId
-            sipariss.comName = comName
             summPrice = float(price)*float(pieces)
-
-            # sipariss.save()
             orderOkMessage = "True"
-
     return render(request,"product.html",{'product':product,'orderOkMessage':orderOkMessage})
-
-
 
 def blogview(request,blogId="all"):
     blogdetails = ""
@@ -331,19 +214,12 @@ def blogview(request,blogId="all"):
 
 
 def about(request):
-    return render(request,'about.html');
+    return render(request,'about.html')
 
 def contactview(request):
     if request.method == "POST":
-        postContact = contact()
-        postContact.fullname = request.POST['fullname']
-        postContact.email = request.POST['email']
-        postContact.phone = request.POST['phone']
-        postContact.message = request.POST['message']
-        postContact.message = request.POST['message']
-        postContact.save()
-    return render(request,'contact.html');
-
+        contact.objects.create(fullname=request.POST['fullname'],email=request.POST['email'],phone=request.POST['phone'],message=request.POST['mesaage'])
+    return render(request,'contact.html')
 
 def blogs(request):
     blogs = blog.objects.all()

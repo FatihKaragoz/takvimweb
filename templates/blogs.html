@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block header %}
-    <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image:url('{% static 'images/heading-pages-06.jpg' %}');">
+    <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image:url('{% static 'images/2020 promosyon.jpg' %}');">
 		<h2 class="l-text2 t-center">
-			Blog
+			Üretimlerimiz
 		</h2>
 	</section>
 {% endblock %}
@@ -60,14 +60,6 @@
 
 				<div class="col-md-4 col-lg-3 p-b-75">
 					<div class="rightbar">
-						<!-- Search -->
-						<div class="pos-relative bo11 of-hidden">
-							<input class="s-text7 size16 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search">
-
-							<button class="flex-c-m size5 ab-r-m color1 color0-hov trans-0-4">
-								<i class="fs-13 fa fa-search" aria-hidden="true"></i>
-							</button>
-						</div>
 
 
 
@@ -78,33 +70,30 @@
 
 						<div class="wrap-tags flex-w">
 							<a href="{% url 'product' 'gemici3' %}" class="tag-item">
-								Gemici 3 Spiralli
+								2020 Yılı Gemici 3 Spiralli Promosyon Takvim
 							</a>
 
 							<a href="{% url 'product' 'gemici1' %}" class="tag-item">
-								Gemici 1 Spiralli
+								2020 Yılı Gemici 1 Spiralli Promosyon Takvim
 							</a>
 
 							<a href="{% url 'product' 'ajanda' %}" class="tag-item">
-								Ajanda
-							</a>
-
-							<a href="{% url 'product' 'masaustu' %}" class="tag-item">
-								Masaüstü Takvim
-							</a>
-                            	<a href="{% url 'product' 'akademik' %}" class="tag-item">
-								Akademik Takvim
-							</a>
-
-							<a href="#" class="tag-item">
-								Takvim
+								Ajanda 2020 Promosyon
 							</a>
                             <a href="#" class="tag-item">
 								Tasarım
 							</a>
+                            <a href="{% url 'product' 'gemicieko' %}" class="tag-item">
+								Takvim
+							</a><br>
+							<a href="{% url 'product' 'masaustu' %}" class="tag-item">
+								2020 Yılı Masaüstü Takvim Promosyon
+							</a>
+
+
                             <a href="#" class="tag-item">
 								Markanıza özel
-							</a>
+							</a><br>
 
 						</div>
 					</div>

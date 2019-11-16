@@ -1,6 +1,8 @@
 from django.db import models
 import uuid
+import time
 from django.utils import timezone
+from datetime import datetime
 from django.contrib.auth.models import User
 # Create your models here.
 
@@ -34,7 +36,7 @@ class menuC(models.Model):
     menu_id = models.UUIDField(primary_key=True,default=uuid.uuid4(),editable=False,blank=True,unique=True)
     menuItem = models.CharField(choices=PRODUCT_CATEGORY,max_length=50,verbose_name="category")
     menuExp = models.CharField(max_length=50,verbose_name="Menüde görülecek isim")
-    menuposition = models.IntegerField(choices=PRODUCT_IMAGE_STATUS,verbose_name="menudeki pozisyon")
+    ordering = models.IntegerField()
     image = models.ImageField(verbose_name="Menü Resmi")
 
     def __str__(self):
@@ -73,6 +75,8 @@ class blog(models.Model):
     image = models.ImageField(verbose_name="Büyük resim", blank=True)
     keywords = models.CharField(max_length=50,verbose_name="Anahtar kelimeler")
     featured = models.CharField(max_length=50,verbose_name="Önerilen")
+    created = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
         return self.caption
 
@@ -83,9 +87,10 @@ class contact(models.Model):
     message = models.CharField(max_length=1000,verbose_name="Mesaj",editable=False)
     email = models.EmailField(verbose_name="Email adresi")
     phone = models.CharField(max_length=50,verbose_name="Telefon numarası")
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.contact_id)
+        return self.created
 
 class price(models.Model):
     price_id = models.UUIDField(primary_key=True,default=uuid.uuid4(),editable=False,blank=True,unique=True)
@@ -133,6 +138,7 @@ class gemici1(models.Model):
     category = models.CharField(choices=PRODUCT_CATEGORY,max_length=20,verbose_name="Kategori")
     exp = models.CharField(max_length=100,blank=True)
     size1 = models.ForeignKey(size,verbose_name="Ölçü 1 için  boyut - renk - fotoğraglar ",related_name="OlcuGemici",on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return str(self.product_id)
@@ -219,9 +225,10 @@ class slider(models.Model):
     aciklama = models.CharField(max_length=50,verbose_name="Slider Açıklama")
     image = models.ImageField(verbose_name="Slider Resmi")
     category = models.CharField(choices=PRODUCT_CATEGORY, max_length=20, verbose_name="Kategori")
+    idd = models.IntegerField(verbose_name="Manu sıralaması")
 
     def __str__(self):
-        return self.baslik
+        return str(self.idd)
 
 class siparis(models.Model):
     siparis_id = models.UUIDField(primary_key=True, default=uuid.uuid4(),editable=False,blank=True,unique=True)

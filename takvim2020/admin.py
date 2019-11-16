@@ -3,8 +3,8 @@ from .models import menuC,colorname,size,color,price,userInformation,gemici3,gem
 
 # Register your models here.
 class menuAdmin(admin.ModelAdmin):
-    list_display = ("menuItem","menuposition","image")
-    list_filter = ("menuItem","menuposition")
+    list_display = ("menuItem","image","ordering")
+    list_filter = ("menuItem","image")
 
 admin.site.register(menuC,menuAdmin)
 

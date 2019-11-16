@@ -66,24 +66,24 @@
                     <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                         <!-- block1 -->
                         <div class="block1 hov-img-zoom pos-relative m-b-30">
-                            <img src="{{ products22.image.url }}" alt="IMG-BENNER" onclick="window.location.href='{% url 'product' products22.menuItem %}'" >
-
-                            <div class="block1-wrapbtn w-sizefull">
-                                <!-- Button -->
-                                <a href="{% url 'product' products22.menuItem %}" class="flex-c-m size2 s-text20 bg-white hov1 trans-0-4 border-success bo5 bo-rad-7">
-                                    {{ products22.menuExp }}
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- block1 -->
-                        <div class="block1 hov-img-zoom pos-relative m-b-30">
                             <img src="{{ products12.image.url }}" alt="IMG-BENNER" onclick="window.location.href='{% url 'product' products12.menuItem %}'" >
 
                             <div class="block1-wrapbtn w-sizefull">
                                 <!-- Button -->
                                 <a href="{% url 'product' products12.menuItem %}" class="flex-c-m size2 s-text20 bg-white hov1 trans-0-4 border-success bo5 bo-rad-7">
                                     {{ products12.menuExp }}
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- block1 -->
+                        <div class="block1 hov-img-zoom pos-relative m-b-30">
+                            <img src="{{ products22.image.url }}" alt="IMG-BENNER" onclick="window.location.href='{% url 'product' products22.menuItem %}'" >
+
+                            <div class="block1-wrapbtn w-sizefull">
+                                <!-- Button -->
+                                <a href="{% url 'product' products22.menuItem %}" class="flex-c-m size2 s-text20 bg-white hov1 trans-0-4 border-success bo5 bo-rad-7">
+                                    {{ products22.menuExp }}
                                 </a>
                             </div>
                         </div>
@@ -131,26 +131,7 @@
 					Üretimlerimiz
 				</h3>
 		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-10 col-md-9 col-lg-9 m-l-r-auto p-t-15 p-b-15">
-					<div class="hov-img-zoom pos-relative">
-                        <iframe width="800" height="441" src="https://www.youtube.com/embed/U2Z4zbaEgK4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-{% endblock %}
-
-
-{% block container %}
-    	<!-- #####################################################################  BLOG #################################################-->
-    	<div class="container">
+         	<div class="container">
 
 			<div class="row">
                 {% for doc in blog %}
@@ -165,12 +146,12 @@
                                 <h4 class="p-b-7">
                                     <a href="{% url 'blog' doc.blog_id %}"  class="m-text11">
                                         {{ doc.caption}}...
-                                    </a>
+                                   </a>
                                 </h4>
                                 <p class="s-text8 p-t-16">
-                                    {{ doc.contain|truncatechars:150 }}  <a href="{% url 'blog' doc.blog_id %}"  class="m-text11">
-                                        &nbsp;&nbsp; devamını oku ...
-                                    </a>
+                                    {{ doc.contain|truncatechars:150 }}.....   <a style="margin-right: 0" href="{% url 'blog' doc.blog_id %}"  class="m-text11"><font color="red">
+                                    devamını oku..
+                                </font></a>
                                 </p>
                             </div>
                         </div>
@@ -180,6 +161,32 @@
 
 			</div>
         </div>
+
+	</section>
+
+
+
+
+{% endblock %}
+
+
+{% block container %}
+    	<!-- #####################################################################  BLOG #################################################-->
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-md-9 col-lg-9 m-l-r-auto p-t-15 p-b-15">
+					<div class="hov-img-zoom pos-relative">
+                        <iframe width="800" height="441" src="https://www.youtube.com/embed/U2Z4zbaEgK4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-md-9 col-lg-9 m-l-r-auto p-t-15 p-b-15">
+					<div class="hov-img-zoom pos-relative">
+                        <iframe width="800" height="441" src="https://www.youtube.com/embed/0tgq7ovws8U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+		</div>
 {% endblock %}
 
 {% block externalJS %}

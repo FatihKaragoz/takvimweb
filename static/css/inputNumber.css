@@ -14,7 +14,9 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: #7eaee4;
 }
 .number-input {
-  margin: 1rem;
+  display: flex;
+  align-items: center;
+  vertical-align: center;
 }
 
 .number-input button {
@@ -55,9 +57,6 @@ input[type=number]::-webkit-outer-spin-button {
   padding-top: 0;
 }
 .md-number-input.number-input button.minus {
-  padding: .5rem;
-  height: 3rem;
-
 }
 .md-number-input.number-input button.plus {
   padding-left: 2px;
