@@ -1,59 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f47aed3f-0ad2-4b0a-ae51-eb2c8c4da929" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/2020_takvim_sitesi.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/2020_takvim_sitesi2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/2020_takvim_sitesi3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/2020_takvim_sitesi4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/2020_takvim_sitesi_0N6fT5D.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/81DxNQ7Oo0L._SL1500_.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/81DxNQ7Oo0L._SL1500__42RU2z2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/81DxNQ7Oo0L._SL1500__BsP4SQ2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/81DxNQ7Oo0L._SL1500__IfqNQPi.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/81DxNQ7Oo0L._SL1500__RQvutp3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/81DxNQ7Oo0L._SL1500__rC9KXT3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Untitled_k3dGw97.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/WhatsApp_Image_2019-11-11_at_17.46.23.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/WhatsApp_Image_2019-11-11_at_17.46.23_sXqd9VN.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/ajandaAna.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/ajandaIceri.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/anafor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/anafor_8w56oVs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/anafor_AUKBok8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/anafor_MZJ2RZG.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/eko.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gemici3Iceri.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gemici3sarı-mavi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gemici3sarı-mavi_1oTKQ2T.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gemici3sarı-mavi_24CKuG3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gemici3sarı-mavi_5znfIqH.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gemici3sarı-mavi_ETOj3Om.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gemici3sarı-mavi_F9e3nqf.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gemici3sarı-mavi_J7SaD2G.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gemici3sarı-mavi_gq8uDbB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gemici3sarı-mavi_ydEYEIM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/masa_DbbP5Rs.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/takvim-dikey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/web_buton.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/web_buton.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/web_buton2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/web_buton3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/web_buton4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/web_buton5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/inputNumber.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/inputNumber.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/util.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/util.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/takvim2020/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/takvim2020/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/takvim2020/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/takvim2020/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/takvimweb/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/takvimweb/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blogs.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blogs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product.html" afterDir="false" />
-    </list>
+    <list default="true" id="f47aed3f-0ad2-4b0a-ae51-eb2c8c4da929" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +133,7 @@
       <workItem from="1573484843581" duration="15586000" />
       <workItem from="1573595265950" duration="13539000" />
       <workItem from="1573646746988" duration="3123000" />
-      <workItem from="1573743814681" duration="29264000" />
+      <workItem from="1573743814681" duration="29462000" />
     </task>
     <servers />
   </component>
