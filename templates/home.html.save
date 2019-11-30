@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block externalCSS %}
+{% endblock %}
+
+{% block header %}
+    <section class="containerCarousel">
+                <div class="carousel slide" id="main-carousel" data-ride="carousel">
+                    <div class="carousel-inner">
+{#                        <div class="carousel-item active">#}
+{#                            <img  src="{% static 'images/tiklayiniz.jpg' %}" alt=""  class="d-none">#}
+{#                        </div>#}
+                        {% for slide in sliders %}
+                            <div class="carousel-item {% if slide.category == "gemici1" %} active {% endif %}">
+                                <img src="{{ slide.image.url }}" alt="" class="d-block img-fluid">
+                                <div class="carousel-caption align-middle d-none d-md-block">
+						            <button class="btn btn-primary btn-lg"  onclick="window.location.href='{% url 'product' slide.category %}'" href="{% url 'product' slide.category %}">Sipariş ver</button>
+					            </div>
+                            </div>
+                        {% endfor %}
+                    </div><!-- /.carousel-inner -->
+
+                    <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="sr-only" aria-hidden="true">Prev</span>
+                    </a>
+                    <a href="#main-carousel" class="carousel-control-next" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="sr-only" aria-hidden="true">Next</span>
+                    </a>
+                </div><!-- /.carousel -->
+	</section>
+
+	<!-- Banner -->
+	<section class="banner bgwhite p-t-40 p-b-40">
+		<div class="container">
+
+                <div class="row">
+                    <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
+                        <!-- block1 -->
+                        <div class="block1 hov-img-zoom pos-relative m-b-30 bo5" >
+                            <img src="{{ products11.image.url }}" alt="IMG-BENNER" onclick="window.location.href='{% url 'product' products11.menuItem %}'" href="{% url 'product' products11.menuItem %}">
+
+                            <div class="block1-wrapbtn w-sizefull">
+                                <!-- Button -->
+                                <a href="{% url 'product' products11.menuItem %}" class="flex-c-m size2 s-text20 bg-white hov1 trans-0-4 border-success bo5 bo-rad-7">
+                                    {{ products11.menuExp }}
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- block1 -->
+                        <div class="block1 hov-img-zoom pos-relative m-b-30">
+                            <img src="{{ products21.image.url }}"  onclick="window.location.href='{% url 'product' products21.menuItem %}'" alt="IMG-BENNER">
+
+                            <div class="block1-wrapbtn w-sizefull">
+                                <!-- Button -->
+                                <a href="{% url 'product' products21.menuItem %}" class="flex-c-m size2 s-text20 bg-white hov1 trans-0-4 border-success bo5 bo-rad-7">
+                                    {{ products21.menuExp }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
+                        <!-- block1 -->
+                        <div class="block1 hov-img-zoom pos-relative m-b-30">
+                            <img src="{{ products12.image.url }}" alt="IMG-BENNER" onclick="window.location.href='{% url 'product' products12.menuItem %}'" >
+
+                            <div class="block1-wrapbtn w-sizefull">
+                                <!-- Button -->
+                                <a href="{% url 'product' products12.menuItem %}" class="flex-c-m size2 s-text20 bg-white hov1 trans-0-4 border-success bo5 bo-rad-7">
+                                    {{ products12.menuExp }}
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- block1 -->
+                        <div class="block1 hov-img-zoom pos-relative m-b-30">
+                            <img src="{{ products22.image.url }}" alt="IMG-BENNER" onclick="window.location.href='{% url 'product' products22.menuItem %}'" >
+
+                            <div class="block1-wrapbtn w-sizefull">
+                                <!-- Button -->
+                                <a href="{% url 'product' products22.menuItem %}" class="flex-c-m size2 s-text20 bg-white hov1 trans-0-4 border-success bo5 bo-rad-7">
+                                    {{ products22.menuExp }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
+                        <!-- block1 -->
+                        <div class="block1 hov-img-zoom pos-relative m-b-30">
+                            <img src="{{ products13.image.url }}" alt="IMG-BENNER" onclick="window.location.href='{% url 'product' products13.menuItem %}'">
+
+                            <div class="block1-wrapbtn w-sizefull">
+                                <!-- Button -->
+                                <a href="{% url 'product' products13.menuItem %}" class="flex-c-m size2 s-text20 bg-white hov1 trans-0-4 border-success bo5 bo-rad-7">
+                                    {{ products13.menuExp }}
+                                </a>
+                            </div>
+                        </div>
+{#                        <div class="block2 wrap-pic-w pos-relative m-b-30">#}
+{#                            <img src="{% static '720x660.png' %}" alt="IMG">#}
+{#                            <div class="block2-content sizefull ab-t-l flex-col-c-m">#}
+{#                                <h4 class="m-text4 t-center w-size3 p-b-8">#}
+{#                                    Buraya herhangi bir reklam ya da bilgilendirme#}
+{#                                </h4>#}
+{##}
+{#                                <p class="t-center w-size4">#}
+{#                                    Toplu siparişlerde indirim ! {% if user.is_authenticated  %} Sipariş verin {% else %} Giriş yapın ve sipariş verin ! {% endif %}#}
+{#                                </p>#}
+{##}
+{#                                <div class="w-size2 p-t-25">#}
+{#                                    <!-- Button -->#}
+{#                                    <a href="{% if user.is_authenticated  %}#{% else %} {% url 'login' %} {% endif %}" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">#}
+{#                                    {% if user.is_authenticated  %} Sipariş verin {% else %} Giriş yapın {% url 'login' %} {% endif %}#}
+{#                                    </a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+                    </div>
+                </div>
+		</div>
+	</section>
+
+	<!-- Banner2 -->
+	<section class="banner2 bg5 p-t-55 p-b-55">
+        <div class="sec-title p-b-52">
+				<h3 class="m-text5 t-center">
+					Üretimlerimiz
+				</h3>
+		</div>
+         	<div class="container">
+
+			<div class="row">
+                {% for doc in blog %}
+                    <div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+                        <!-- Block3 -->
+                        <div class="block3">
+                            <a href="{% url 'blog' doc.blog_id %}" class="block3-img dis-block hov-img-zoom">
+                                <img src="{{ doc.image.url }}" alt="IMG-BLOG">
+                            </a>
+
+                            <div class="block3-txt p-t-14">
+                                <h4 class="p-b-7">
+                                    <a href="{% url 'blog' doc.blog_id %}"  class="m-text11">
+                                        {{ doc.caption}}...
+                                   </a>
+                                </h4>
+                                <p class="s-text8 p-t-16">
+                                    {{ doc.contain|truncatechars:150|safe }}.....   <a style="margin-right: 0" href="{% url 'blog' doc.blog_id %}"  class="m-text11"><font color="red">
+                                    devamını oku..
+                                </font></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+			</div>
+        </div>
+
+	</section>
+
+
+
+
+{% endblock %}
+
+
+{% block container %}
+    	<!-- #####################################################################  BLOG #################################################-->
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-md-9 col-lg-9 m-l-r-auto p-t-15 p-b-15">
+					<div class="hov-img-zoom pos-relative">
+                        <iframe width="800" height="441" src="https://www.youtube.com/embed/U2Z4zbaEgK4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+<iframe width="cal" height="711" src="https://www.youtube.com/embed/jQXwfo0PbGw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="col-sm-10 col-md-9 col-lg-9 m-l-r-auto p-t-15 p-b-15">
+					<div class="hov-img-zoom pos-relative">
+                        <iframe width="800" height="441" src="https://www.youtube.com/embed/0tgq7ovws8U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+		</div>
+{% endblock %}
+
+{% block externalJS %}
+
+{% endblock %}

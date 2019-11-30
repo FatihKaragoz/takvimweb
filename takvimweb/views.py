@@ -31,7 +31,8 @@ def homeview(request):
             products22 = doc
         count+=1
 
-    sliders = slider.objects.order_by('-idd')
+    sliders = slider.objects.order_by('idd')
+    
 
     blogs = blog.objects.all()
     return render(request,'home.html',{'products11':products11,'products12':products12,'products13':products13,'products21':products21,'products22':products22,'products23':products23,'sliders':sliders,'blog':blogs})

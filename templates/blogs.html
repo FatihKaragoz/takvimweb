@@ -43,7 +43,7 @@
 								</div>
 
 								<p class="p-b-12">
-									{{ blog.contain|slice:":255" }}
+									{{ blog.contain|slice:":250"| safe  }}
 								</p>
 
 								<a href="{% url 'blog' blog.blog_id %}"  class="s-text20">

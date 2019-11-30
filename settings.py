@@ -24,7 +24,7 @@ import netifaces
 #                ip_list.append(addrs[x][0]['addr'])
 #    return ip_list
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['157.245.123.237']
 
 USE_X_FORWARDED_HOST = True
 
