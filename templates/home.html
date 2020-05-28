@@ -14,7 +14,7 @@
                         {% for slide in sliders %}
                             <div class="carousel-item {% if slide.category == "gemici1" %} active {% endif %}">
                                 <img src="{{ slide.image.url }}" alt="" class="d-block img-fluid">
-                                <div class="carousel-caption align-middle d-none d-md-block">
+                                <div class="carousel-caption align-middle">
 						            <button class="btn btn-primary btn-lg"  onclick="window.location.href='{% url 'product' slide.category %}'" href="{% url 'product' slide.category %}">Sipariş ver</button>
 					            </div>
                             </div>
